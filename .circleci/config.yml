@@ -50,8 +50,15 @@ jobs:
           path: test-reports
           destination: test-reports
 
-      - deployment:
-          staging:
-            branch: master
-            heroku:
-              appname: git-repo-stats
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "ca:00:e8:e8:1e:53:7a:c8:04:1d:d9:28:e3:f0:78:4f"
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+              heroku run python manage.py deploy
+              heroku restart
+            fi
