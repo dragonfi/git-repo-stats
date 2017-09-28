@@ -25,7 +25,7 @@ SECRET_KEY = 'z4lf+zv^8p=l#%mcdg^)9703ux9ay+3)e)zu0&72*2e*yvblkw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', 'git-repo-stats.herokuapp.com']
 
 
 # Application definition
