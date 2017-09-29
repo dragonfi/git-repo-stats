@@ -1,9 +1,19 @@
 {% extends 'statgetter/layout.html' %}
 
 {% block content %}
-<form class="commit-statistics" onsubmit="location.href='{% url 'stats' '' %}' + document.getElementById('repo_url').value; return false;">
+<form class="commit-statistics" onsubmit="return onsubmitHandler()">
   <label for="repo_url">Git repo url:</label>
   <input type="text" id="repo_url" />
   <input type="submit" value="Show commit statistics" />
 </form>
+<div class="result" id="result">
+</div>
+<script>
+function onsubmitHandler() {
+  target_url = '{% url 'stats' '' %}' + $('#repo_url').val();
+  console.log(target_url);
+  window.location.href = target_url;
+  return false;
+}
+</script>
 {% endblock %}
