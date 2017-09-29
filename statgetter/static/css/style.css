@@ -16,3 +16,12 @@ table, th, td {
 th {
   color: dark-grey;
 }
+
+#repo_url {
+  width: 30em;
+}
+
+form.commit-statistics * {
+  margin: 0.2em;
+  display: block;
+}

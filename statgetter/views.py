@@ -7,7 +7,7 @@ from .gitstats import RemoteRepoStats
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the statgetter index.")
+    return render(request, 'statgetter/index.html')
 
 def stats(request, repo_url):
     contributions = RemoteRepoStats(repo_url).contributions_by_author

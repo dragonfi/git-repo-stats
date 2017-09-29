@@ -1,0 +1,9 @@
+{% extends 'statgetter/layout.html' %}
+
+{% block content %}
+<form class="commit-statistics" onsubmit="location.href='{% url 'stats' '' %}' + document.getElementById('repo_url').value; return false;">
+  <label for="repo_url">Git repo url:</label>
+  <input type="text" id="repo_url" />
+  <input type="submit" value="Show commit statistics" />
+</form>
+{% endblock %}
