@@ -2,7 +2,7 @@ from django.test import TestCase
 import git
 from .gitstats import RepoStats, RemoteRepoStats
 
-AUTHOR = 'Dávid Gábor Bodor <david.gabor.bodor@gmail.com>'
+AUTHOR = 'David Gabor Bodor'
 
 class RepoStatsTestCase(TestCase):
     def setUp(self, *args, **kwargs):
@@ -12,6 +12,8 @@ class RepoStatsTestCase(TestCase):
     def test_representation(self):
         self.assertIn('.', repr(self.repo_stats))
 
+    def test_known_author_is_in_authors(self):
+        self.assertIn(AUTHOR, self.repo_stats.authors)
 
 class RemoteRepoStatsTestCase(TestCase):
     def test_repo_can_be_cloned(self):

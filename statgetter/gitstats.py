@@ -6,6 +6,11 @@ class RepoStats(object):
     def __init__(self, repo_url, repo):
         self._repo_url = repo_url
         self._repo = repo
+        self._commits = [c for c in self._repo.iter_commits()]
+
+    @property
+    def authors(self):
+        return {c.author.name for c in self._commits}
 
     def __repr__(self):
         return 'RepoStats<{}>'.format(self._repo_url)
