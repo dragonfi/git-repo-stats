@@ -1,23 +1,19 @@
+from collections import OrderedDict
+
 from django.shortcuts import render
-
-# Create your views here.
-
 from django.http import HttpResponse
+
+from .gitstats import RemoteRepoStats
 
 
 def index(request):
     return HttpResponse("Hello, world. You're at the statgetter index.")
 
 def stats(request, repo_url):
+    contributions = RemoteRepoStats(repo_url).contributions_by_author
     context = {
         'repo_url': repo_url,
-        'contributors': {
-            'headers': ['developer', 'commits', 'insertions', 'deletions'],
-            'rows': [
-                ['mark@mark.com', 1000, 10000, 20000],
-                ['timmy@timmy.com', 10, 100, 0],
-                ['john@john.com', 100, 1, 1000],
-            ]
-        }
+        'contributions_header': ['name', 'commits', 'insertions', 'deletions'],
+        'contributions': OrderedDict(sorted(contributions.items())),
     }
     return render(request, 'statgetter/stats.html', context)

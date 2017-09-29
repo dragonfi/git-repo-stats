@@ -1,17 +1,19 @@
 <h1>Showing contributor stats for {{ repo_url }}</h1>
 
-{% if contributors %}
+{% if contributions %}
   <table>
     <tr>
-      {% for data in contributors.headers %}
-        <th>{{ data }}</th>
-      {% endfor %}
+      <th>Name</th>
+      <th>Commits</th>
+      <th>Insertions</th>
+      <th>Deletions</th>
     </tr>
-    {% for row in contributors.rows %}
+    {% for name, stats in contributions.items %}
       <tr>
-        {% for data in row %}
-          <td>{{ data }}</td>
-        {% endfor %}
+        <td>{{ name }}</td>
+        <td>{{ stats.commits }}</td>
+        <td>{{ stats.insertions }}</td>
+        <td>{{ stats.deletions }}</td>
       </tr>
     {% endfor %}
   </table>
