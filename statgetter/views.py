@@ -11,5 +11,13 @@ def index(request):
 def stats(request, repo_url):
     context = {
         'repo_url': repo_url,
+        'contributors': {
+            'headers': ['developer', 'commits', 'insertions', 'deletions'],
+            'rows': [
+                ['mark@mark.com', 1000, 10000, 20000],
+                ['timmy@timmy.com', 10, 100, 0],
+                ['john@john.com', 100, 1, 1000],
+            ]
+        }
     }
     return render(request, 'statgetter/stats.html', context)

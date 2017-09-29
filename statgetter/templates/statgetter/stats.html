@@ -1,1 +1,18 @@
-<h1>{{ repo_url }}</h1>
+<h1>Showing contributor stats for {{ repo_url }}</h1>
+
+{% if contributors %}
+  <table>
+    <tr>
+      {% for data in contributors.headers %}
+        <th>{{ data }}</th>
+      {% endfor %}
+    </tr>
+    {% for row in contributors.rows %}
+      <tr>
+        {% for data in row %}
+          <td>{{ data }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}
