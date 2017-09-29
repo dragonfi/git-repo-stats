@@ -1,0 +1,18 @@
+h1 {
+  font-size: 1.5rem;
+  color: dark-grey;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+th {
+  color: dark-grey;
+}
