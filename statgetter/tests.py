@@ -24,6 +24,7 @@ class RepoStatsTestCase(TestCase):
         self.assertGreaterEqual(contributions[AUTHOR].deletions, 17)
         self.assertEqual(contributions[AUTHOR2], (1, 124, 0))
 
+@unittest.skip('Slow test')
 class RemoteRepoStatsTestCase(TestCase):
     def test_repo_can_be_cloned(self):
         repo_url = 'https://github.com/dragonfi/git-repo-stats'
