@@ -12,7 +12,15 @@
 function onsubmitHandler() {
   target_url = '{% url 'stats' '' %}' + $('#repo_url').val();
   console.log(target_url);
-  window.location.href = target_url;
+  $.ajax({
+    url: target_url,
+    type: "GET"
+  }).done(function(msg) {
+    $('div#result').html(msg);
+  }).fail(function(msg) {
+    $('div#result').html('<h1>Failure. (Status: ' + msg.status + ')</h1>');
+  });
+  $('div#result').html('<h1>Processing...</h1>');
   return false;
 }
 </script>

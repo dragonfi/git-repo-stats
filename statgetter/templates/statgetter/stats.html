@@ -1,6 +1,3 @@
-{% extends 'statgetter/layout.html' %}
-
-{% block content %}
 <h1>Showing contributor stats for {{ repo_url }}</h1>
 
 {% if contributions %}
@@ -21,4 +18,3 @@
     {% endfor %}
   </table>
 {% endif %}
-{% endblock %}
