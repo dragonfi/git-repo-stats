@@ -22,7 +22,9 @@ class RepoStatsTestCase(TestCase):
         self.assertGreaterEqual(contributions[AUTHOR].commits, 18)
         self.assertGreaterEqual(contributions[AUTHOR].insertions, 393)
         self.assertGreaterEqual(contributions[AUTHOR].deletions, 17)
-        self.assertEqual(contributions[AUTHOR2], (1, 124, 0))
+        self.assertGreaterEqual(contributions[AUTHOR2].commits, 2)
+        self.assertGreaterEqual(contributions[AUTHOR2].insertions, 126)
+        self.assertGreaterEqual(contributions[AUTHOR2].deletions, 0)
 
 @unittest.skip('Slow test')
 class RemoteRepoStatsTestCase(TestCase):
