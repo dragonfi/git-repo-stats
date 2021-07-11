@@ -59,7 +59,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               #git push heroku master
-              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/git-repo-stats.git master
+              git push https://$HEROKU_LOGIN:$HEROKU_API_KEY@git.heroku.com/git-repo-stats.git master
               heroku run python manage.py deploy
               heroku restart
             fi
