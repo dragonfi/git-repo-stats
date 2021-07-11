@@ -1,4 +1,4 @@
-Django==1.11.5
+Django==2.2.24
 gitdb2==2.0.3
 GitPython==2.1.7
 gunicorn==19.7.1
